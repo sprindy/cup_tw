@@ -99,7 +99,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	//uint32_t i = 0;
-	uint8_t string[10] = "sprindy";	
+	uint8_t  string[10] = "sprindy";
+	uint32_t volt_temp = 0;
+	HAL_ADC_Start(&hadc1);
 		
   while (1)
   {
@@ -108,8 +110,8 @@ int main(void)
   /* USER CODE BEGIN 3 */
 		
 		HAL_Delay(1000);
-
-		printf("send tx:%s\n", string);
+		volt_temp = HAL_ADC_GetValue(&hadc1);
+		printf("get temp adc result:%d\n", volt_temp);
   }
   /* USER CODE END 3 */
 
